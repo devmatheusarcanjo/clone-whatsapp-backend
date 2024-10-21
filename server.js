@@ -5,7 +5,12 @@ const { Server } = require('socket.io');
 const app = express();
 const server = http.createServer(app);
 const cors = require('cors');
+app.use(cors());
 
+app.get('/ping', (req, res) => {
+  console.log('dd');
+  res.send('true');
+});
 // Configurar CORS
 const io = new Server(server, {
   cors: {
