@@ -28,6 +28,7 @@ let usuariosOnline = [];
 
 grupo.on('connection', (socket) => {
   usuariosOnline.push(socket.id);
+  grupo.emit('connect', true);
   grupo.emit('usuariosOnline', usuariosOnline.length - 1);
 
   socket.on('mensagemClient', (msg) => {
